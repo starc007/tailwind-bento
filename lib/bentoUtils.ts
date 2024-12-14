@@ -3,8 +3,7 @@ export const generateTailwindCSS = (
   rows: number,
   columns: number
 ): string => {
-  return `<!-- Grid Container -->
-<div class="grid grid-cols-${columns} grid-rows-${rows} gap-2">
+  return `<div class="grid grid-cols-${columns} grid-rows-${rows} gap-2">
 ${items
   .map(
     (item) =>

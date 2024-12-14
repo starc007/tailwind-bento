@@ -10,8 +10,8 @@ export const COLORS = [
 ] as const;
 
 export const DEFAULT_GRID_SIZE = {
-  rows: 3,
-  columns: 3,
+  rows: 5,
+  columns: 5,
   MAX_ROWS: 12,
   MAX_COLUMNS: 12,
 };

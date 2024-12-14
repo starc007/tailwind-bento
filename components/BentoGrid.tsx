@@ -11,16 +11,11 @@ const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 600;
 const GAP = 8;
 
-interface GridItem {
-  id: string;
-  startCell: number;
-  width: number;
-  height: number;
-  color: string;
-  isActive: boolean;
+interface BentoGridProps {
+  onUpdate: (items: GridItem[], rows: number, columns: number) => void;
 }
 
-function BentoGrid() {
+function BentoGrid({ onUpdate }: BentoGridProps) {
   const [rows, setRows] = React.useState(DEFAULT_GRID_SIZE.rows);
   const [columns, setColumns] = React.useState(DEFAULT_GRID_SIZE.columns);
   const [overlays, setOverlays] = React.useState<GridItem[]>([]);
@@ -96,7 +91,9 @@ function BentoGrid() {
     );
   };
 
-  console.log("overlays", overlays);
+  React.useEffect(() => {
+    onUpdate(overlays, rows, columns);
+  }, [overlays, rows, columns, onUpdate]);
 
   return (
     <div className="flex flex-col gap-5">
@@ -107,6 +104,9 @@ function BentoGrid() {
         setColumns={setColumns}
       />
 
+      <p className="text-sm text-gray-500">
+        Click on any box to start creating your layout.
+      </p>
       <div
         className="bg-gray-50 rounded-lg relative"
         style={{
