@@ -63,6 +63,36 @@ function BentoGrid({ onUpdate }: BentoGridProps) {
   };
 
   const handleResize = (id: string, newWidth: number, newHeight: number) => {
+    const currentItem = overlays.find((overlay) => overlay.id === id);
+    if (!currentItem) return;
+
+    // Calculate new boundaries
+    const x = currentItem.startCell % columns;
+    const y = Math.floor(currentItem.startCell / columns);
+    const newEndX = x + newWidth;
+    const newEndY = y + newHeight;
+
+    // Check if new size exceeds grid boundaries
+    if (newEndX > columns || newEndY > rows) return;
+
+    // Check for collisions with other items
+    const hasCollision = overlays.some((item) => {
+      if (item.id === id) return false;
+
+      const itemX = item.startCell % columns;
+      const itemY = Math.floor(item.startCell / columns);
+      const itemEndX = itemX + item.width;
+      const itemEndY = itemY + item.height;
+
+      // More strict collision check
+      const horizontalOverlap = x < itemEndX && newEndX > itemX;
+      const verticalOverlap = y < itemEndY && newEndY > itemY;
+
+      return horizontalOverlap && verticalOverlap;
+    });
+
+    if (hasCollision) return;
+
     setOverlays((prev) =>
       prev.map((overlay) =>
         overlay.id === id

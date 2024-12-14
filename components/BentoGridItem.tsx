@@ -87,6 +87,9 @@ function BentoGridItem({
             backgroundColor: colorMap[color] || "#BFDBFE",
           }}
         >
+          <span className="absolute top-2 left-2 text-sm font-medium">
+            Grid {startCell + 1}
+          </span>
           <button
             onClick={(e) => {
               e.stopPropagation();
