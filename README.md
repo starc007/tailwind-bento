@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bengrid - Bento Grid Generator
 
-## Getting Started
+A simple, open-source tool to create and export bento grid layouts. Design beautiful, responsive grids and export them as:
 
-First, run the development server:
+- Tailwind CSS
+- Plain CSS
+- Figma Layout (via plugin)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Visual grid builder
+- Customizable rows and columns
+- Responsive layouts
+- Multiple export options
+- Figma plugin integration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Install dependencies
 
-## Learn More
+`npm install`
 
-To learn more about Next.js, take a look at the following resources:
+### Run development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run dev`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Figma Plugin
 
-## Deploy on Vercel
+To use the Figma plugin:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Install the Bengrid plugin from Figma Community
+2. Copy your grid configuration from the web app
+3. Paste into the plugin
+4. Generate your layout in Figma
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Contributions are welcome! Feel free to:
+
+- Open issues
+- Submit PRs
+- Suggest features
+- Improve documentation
+
+## License
+
+MIT License - feel free to use this project for personal or commercial purposes.
